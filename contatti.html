@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, Monospace;
+}
+
+.topnav {
+  position: relative;
+  overflow: hidden;
+  background-color: #222;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  color: grey;
+}
+
+.topnav a.active {
+  color: green;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.topnav-centered a {
+  float: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.topnav-right {
+  float: right;
+}
+
+/* Responsive navigation menu (for mobile devices) */
+@media screen and (max-width: 600px) {
+  .topnav a, .topnav-right {
+    float: none;
+    display: block;
+  }
+  
+  .topnav-centered a {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+  }
+}s
+
+.link a {
+  float: left;
+  color: #white;
+}
+
+.link a:link {
+  color: green;
+  text-decoration: none;
+}
+
+.link a:visited {
+  text-decoration: none;
+}
+
+.link a:hover {
+  text-decoration: underline;
+}
+
+.link a:active {
+  text-decoration: none;
+  background-color: hotpink;
+}
+
+</style>
+
+</head>
+<body style="background-color:#111111">
+
+<h1 style="text-align: center; color:white">Open Factory</h1>
+
+<p style="text-align: center; color:white">Laboratorio di Lorenzo Ubaldi</p>
+<!-- Top navigation -->
+<div class="topnav">
+
+  <!-- Centered link -->
+  <div class="topnav-centered">
+    <a href="index.html" class="active">Home</a>
+  </div>
+  
+  <!-- Left-aligned links (default) -->
+  <a href="attrezzature.html">Attrezzature</a>
+  <a href="foto.html">Foto</a>
+  
+  <!-- Right-aligned links -->
+  <div class="topnav-right">
+    <a href="contatti.html">Contatti</a>
+    <a href="#about">About</a>
+  </div>
+  
+</div>
+
+<address style="text-align: left; color:white; padding:20px; font-size:20px" class="link">
+Potete scrivermi a <a href="open.factory00@gmail.com">open.factory00@gmail.com</a>.<br><br>
+Indirizzo: via Giambellino 15, Milano<br>
+</address>
+
+</body>
+</html>
+
