@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, Monospace;
+}
+
+.topnav {
+  position: relative;
+  overflow: hidden;
+  background-color: #222;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  color: grey;
+}
+
+.topnav a.active {
+  color: green;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.topnav-centered a {
+  float: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.topnav-right {
+  float: right;
+}
+
+/* Responsive navigation menu (for mobile devices) */
+@media screen and (max-width: 600px) {
+  .topnav a, .topnav-right {
+    float: none;
+    display: block;
+  }
+  
+  .topnav-centered a {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+  }
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  max-width: 600px;
+  max-height: 500px;
+}
+
+</style>
+</head>
+<body style="background-color:#111111">
+
+<h1 style="text-align: center; color:white">Open Factory</h1>
+
+<p style="text-align: center; color:white">Laboratorio di Lorenzo Ubaldi</p>
+<!-- Top navigation -->
+<div class="topnav">
+
+  <!-- Centered link -->
+  <div class="topnav-centered">
+    <a href="index.html">Home</a>
+  </div>
+  
+  <!-- Left-aligned links (default) -->
+  <a href="attrezzature.html" class="active">Attrezzature</a>
+  <a href="#contact">Foto</a>
+  
+  <!-- Right-aligned links -->
+  <div class="topnav-right">
+    <a href="#search">Contatti</a>
+    <a href="#about">About</a>
+  </div>
+  
+</div>
+
+<div style="padding:30px">
+  </div>
+  
+ <figure>
+  <img src="/photos/cnc.png" alt="cnc" style="object-fit: contain" class="center">
+  <figcaption style="color:white; text-align:center">Workbee CNC</figcaption>
+</figure> 
+
+</div> 
+ <figure>
+  <img src="/photos/ender3.png" alt="ender3" style="object-fit: contain" class="center">
+  <figcaption style="color:white; text-align:center">Ender 3</figcaption>
+</figure> 
+</div>
+
+</div> 
+ <figure>
+  <img src="/photos/laser-cutter.png" alt="ender3" style="object-fit: contain" class="center">
+  <figcaption style="color:white; text-align:center">I still don't have this</figcaption>
+</figure> 
+</div>
+
+</body>
+</html>
