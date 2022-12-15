@@ -87,7 +87,8 @@
 </script>
 <br>
 <hr>
-<br>
+
+<div class="centeredwhite">
 <h1 style="text-align: center; color:white">Weather in Milan</h1>
 <!-- Create a div element where the weather data will be displayed -->
 <div id="weather" class="centered" style="color:white"></div>
@@ -113,9 +114,80 @@
       weatherElement.innerHTML = weatherString;
     });
 </script>
-<hr>
 <br>
+<hr>
 
+  <h1>Stopwatch</h1>
+  <p>Time: <span id="time-seconds">0</span>:<span id="time-milliseconds">0</span> milliseconds</p>
+  <button class="button" id="start">Start</button>
+  <button class="button" id="stop">Stop</button>
+  <button class="button" id="reset">Reset</button>
+
+  <script>
+    // Initialize variables
+    let timeSecond = 0;
+    let timeMillisecond = 0;
+    let stopped = 1;
+    let going = 0;
+
+    // Get references to the buttons and the time display
+    const startBtn = document.getElementById("start");
+    const stopBtn = document.getElementById("stop");
+    const resetBtn = document.getElementById("reset");
+    const timeSecondDisplay = document.getElementById("time-seconds");
+    const timeMillisecondDisplay = document.getElementById("time-milliseconds");
+    
+    // Define a function to start the stopwatch
+    function start() {
+      // Increment the time and update the time display
+      stopped = 0;
+      if(!going){
+        going = 1;
+        setTimeout(go, 1);
+      }
+    }
+    
+    function go() {
+      timeMillisecond += 1;
+      if(timeMillisecond == 100){
+        timeSecond += 1;
+        timeMillisecond = 0;
+      }
+      
+      timeSecondDisplay.innerHTML = timeSecond;
+      timeMillisecondDisplay.innerHTML = timeMillisecond;
+      
+      if(!stopped){
+        setTimeout(go, 1);
+        }
+    }
+
+    // Define a function to stop the stopwatch
+    function stop() {
+      // Clear the interval to stop the stopwatch
+      stopped = 1;
+      going = 0;
+      timeSecondDisplay.innerHTML = timeSecond;
+      timeMillisecondDisplay.innerHTML = timeMillisecond;
+    }
+
+    // Define a function to reset the stopwatch
+    function reset() {
+      // Clear the interval and reset the time to 0
+      stopped = 1;
+      timeSecond = 0;
+      timeMillisecond = 0;
+      going = 0;
+      timeSecondDisplay.innerHTML = timeSecond;
+      timeMillisecondDisplay.innerHTML = timeMillisecond;
+    }
+
+    // Add event listeners to the buttons to call the start, stop, and reset functions
+    startBtn.addEventListener("click", start);
+    stopBtn.addEventListener("click", stop);
+    resetBtn.addEventListener("click", reset);
+  </script>
+</div>
 </body>
 </html>
 
