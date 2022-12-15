@@ -59,7 +59,7 @@
 </form>
 </div>
 <!-- Create a div element where the QR code will be generated -->
-<div id="qrcode" style="display: inline-block; width: 200px; margin: 0 auto;"></div>
+<div id="qrcode" class="centered"></div>
 
 <!-- Generate the QR code and insert it into the div element when the button is clicked -->
 <script>
@@ -118,7 +118,7 @@
 <hr>
 
   <h1>Stopwatch</h1>
-  <p>Time: <span id="time-seconds">0</span>:<span id="time-milliseconds">0</span> milliseconds</p>
+  <p>Time: <span id="time-seconds">0</span>:<span id="time-milliseconds">0</span> seconds</p>
   <button class="button" id="start">Start</button>
   <button class="button" id="stop">Stop</button>
   <button class="button" id="reset">Reset</button>
@@ -188,6 +188,59 @@
     resetBtn.addEventListener("click", reset);
   </script>
 </div>
+<br>
+<hr>
+
+<div class="centered">
+    <h1 class="simpletext">Timer</h1>
+    <p class="simpletext">Enter the time in seconds:</p>
+    <input type="number" id="time-input"  class="textbox"/>
+    <button onclick="startTimer()" class="button">Start Timer</button>
+    <p class="simpletext">Time remaining: <span id="time-remaining"></span></p>
+    <audio id="audio-context"></audio>
+
+    <script>
+      function startTimer() {
+        // Get the time from the input field
+        var time = document.getElementById("time-input").value;
+        var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        // Update the time remaining every second
+         var oscillator = audioCtx.createOscillator();
+
+  // Set the frequency of the oscillator (i.e. the note to play)
+  oscillator.frequency.value = 600;
+
+  // Connect the oscillator to the audio context
+  oscillator.connect(audioCtx.destination);
+
+  // Start the oscillator
+  
+        var timer = setInterval(function() {
+          time--;
+          document.getElementById("time-remaining").innerHTML = time;
+          
+          if (time == 0) {
+            clearInterval(timer);
+            oscillator.start();
+            setTimeout(function(){oscillator.stop();}, 600);
+          }
+        }, 1000);
+      }
+    </script>
+</div>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 </body>
 </html>
 
