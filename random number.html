@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Random Number Generator</title>
+  <style>
+    /* Style the button */
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    button:hover {
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+  <h1>Random Number Generator</h1>
+  <p>Click the button below to generate a random number between 1 and 100:</p>
+
+  <button onclick="generateNumber()">Generate Number</button>
+
+  <p id="number"></p>
+
+  <script>
+    // Generate a random number between 1 and 100
+    function generateNumber() {
+      var number = Math.floor(Math.random() * 100) + 1;
+      document.getElementById("number").innerHTML = number;
+    }
+  </script>
+</body>
+</html>
+

@@ -1,10 +1,31 @@
-<style>
-
 body {
   margin: 0;
   font-family: Arial, Helvetica, Monospace;
 }
 
+.centered {
+  text-align: center;
+}
+
+.button {
+    font-size: 20px;
+    text-align: center;
+    color:black;
+    background-color:white;
+    border-color: green;
+  }
+  
+  .simpletext {
+    color:white;
+  }
+  
+  .textbox {
+    font-size: 20px;
+    color:black;
+    background-color:white;
+    border-color: green;
+  }
+  
 .topnav {
   position: relative;
   overflow: hidden;
@@ -88,4 +109,5 @@ body {
 .link a:active {
   text-decoration: none;
 }
-</style>
+
+

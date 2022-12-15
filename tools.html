@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head><title>Open Factory</title>
+  <link rel="icon" href="/images/icon.png">
+  <link rel="stylesheet" href="styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body style="background-color:#111111">
+<h1 style="text-align: center; color:white">Open Factory</h1>
+<p style="text-align: center; color:white">Laboratorio di Lorenzo Ubaldi</p>
+<!-- Top navigation -->
+<div class="topnav">
+  <!-- Centered link -->
+  <div class="topnav-centered">
+    <a href="index.html">Home</a>
+  </div>
+  <!-- Left-aligned links (default) -->
+  <a href="attrezzature.html">Attrezzature</a>
+  <a href="foto.html">Foto</a>
+  <!-- Right-aligned links -->
+  <div class="topnav-right">
+    <a href="contatti.html">Contatti</a>
+    <a class="active">Tools</a>
+  </div>
+</div>
+<div class="centered">
+<h1 style="text-align: center; color:white">Random Number Generator</h1>
+  <p style="text-align: center; color:white">Click the button below to generate a random number between 1 and 100:</p>
+
+  <button onclick="generateNumber()" class="button">Generate Number</button>
+  <h>&nbsp;&nbsp;&nbsp;</h>
+  <h id="number" style="text-align: center; color:white">00</h>
+</div>
+  <script>
+    // Generate a random number between 1 and 100
+    function generateNumber() {
+      var number = Math.floor(Math.random() * 100) + 1;
+      document.getElementById("number").innerHTML = number;
+    }
+  </script>
+  <br>
+<hr>
+
+<div class="centered">
+<h1 style="text-align: center; color:white">QR Code Generator</h1>
+  <p style="text-align: center; color:white">Insert a link and then click on the button to generate a QR code.</p>
+<!-- Include the qrcode.js library -->
+<script src="https://unpkg.com/qrcodejs@1.0.0/qrcode.min.js"></script>
+
+<!-- Create a form with an input for the link and a button to generate the QR code -->
+<form>
+  <label class="simpletext">
+    Link:
+    <h>&nbsp;&nbsp;&nbsp;</h>
+    <input type="text" id="link-input" class="textbox"/>
+  </label>
+  <h>&nbsp;&nbsp;&nbsp;</h>
+  <button type="button" id="generate-button" class="button">Generate QR code</button>
+</form>
+</div>
+<!-- Create a div element where the QR code will be generated -->
+<div id="qrcode" style="display: inline-block; width: 200px; margin: 0 auto;"></div>
+
+<!-- Generate the QR code and insert it into the div element when the button is clicked -->
+<script>
+  var generateButton = document.getElementById("generate-button");
+
+  generateButton.addEventListener("click", function () {
+    // Get the link from the input
+    var link = document.getElementById("link-input").value;
+
+    // Remove the existing QR code
+    var qrcodeElement = document.getElementById("qrcode");
+    while (qrcodeElement.firstChild) {
+      qrcodeElement.removeChild(qrcodeElement.firstChild);
+    }
+
+    // Generate the QR code
+    var qrcode = new QRCode(qrcodeElement, {
+      text: link,
+      width: 200,
+      height: 200,
+    });
+    // Reset the input
+    linkInput.value = "";
+  });
+</script>
+<br>
+<hr>
+<br>
+<h1 style="text-align: center; color:white">Weather in Milan</h1>
+<!-- Create a div element where the weather data will be displayed -->
+<div id="weather" class="centered" style="color:white"></div>
+
+<!-- Get the weather data and display it in the div element when the page loads -->
+<script>
+  // Set the API URL and your API key
+  var url = "https://api.openweathermap.org/data/2.5/weather?q=Milan,Italy&appid=c90f2f8ecb0d97f5a6a19d6ca9e5e636";
+
+  // Send a GET request to the API to retrieve the weather data
+  fetch(url)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      // Parse the weather data and display it in the div element
+      var weather = data.weather[0];
+      var temperature = (data.main.temp - 273.15).toFixed(2);
+      var pressure = data.main.pressure;
+      var humidity = data.main.humidity;
+      var weatherString = "Current weather in Milan, Italy: " + weather.main + " - " + weather.description + "<br>" + temperature + "°C, " + pressure + " hPa, " + humidity + "% humidity";
+      var weatherElement = document.getElementById("weather");
+      weatherElement.innerHTML = weatherString;
+    });
+</script>
+<hr>
+<br>
+
+<!-- Create a form with inputs for the name, email, and message and a button to send the email -->
+<form action="send-email.php" method="POST">
+  <label>
+    Name:
+    <input type="text" name="name" />
+  </label>
+  <label>
+    Email:
+    <input type="email" name="email" />
+  </label>
+  <label>
+    Message:
+    <textarea name="message"></textarea>
+  </label>
+  <button type="submit">Send email</button>
+</form>
+
+
+</body>
+</html>
+
