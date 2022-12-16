@@ -25,6 +25,11 @@ body {
     font-size: 20px;
   }
   
+  .titles {
+    color:white;
+    font-size: min(max(20px, 4vw), 30px);
+  }
+  
   .textbox {
     font-size: 20px;
     color:black;

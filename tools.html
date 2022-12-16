@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body style="background-color:#111111">
-<h1 style="text-align: center; color:white">Open Factory</h1>
+<h1 style="text-align: center; color:white; font-size: min(max(40px, 4vw), 30px);">Open Factory</h1>
 <p style="text-align: center; color:white">Laboratorio di Lorenzo Ubaldi</p>
 <!-- Top navigation -->
 <div class="topnav">
@@ -24,7 +24,7 @@
   </div>
 </div>
 <div class="centered">
-<h1 style="text-align: center; color:white">Random Number Generator</h1>
+<h1 class="titles">Random Number Generator</h1>
   <p style="text-align: center; color:white">Click the button below to generate a random number between 1 and 100:</p>
 
   <button onclick="generateNumber()" class="button">Generate Number</button>
@@ -42,7 +42,7 @@
 <hr>
 
 <div class="centered">
-<h1 style="text-align: center; color:white">QR Code Generator</h1>
+<h1 style="text-align: center; color:white" class="titles">QR Code Generator</h1>
   <p  class="simpletext">Insert a link and then click on the button to generate a QR code.</p>
 <!-- Include the qrcode.js library -->
 <script src="https://unpkg.com/qrcodejs@1.0.0/qrcode.min.js"></script>
@@ -87,7 +87,7 @@
 <hr>
 
 <div class="centeredwhite">
-<h1 style="text-align: center; color:white">Weather in Milan</h1>
+<h1 style="text-align: center; color:white" class="titles">Weather in Milan</h1>
 <!-- Create a div element where the weather data will be displayed -->
 <div id="weather" class="simpletext"></div>
 
@@ -115,7 +115,7 @@
 <br>
 <hr>
 
-  <h1>Stopwatch</h1>
+  <h1 class="titles">Stopwatch</h1>
   <p class="simpletext">Time: <span id="time-minute">0</span>:<span id="time-seconds">0</span>:<span id="time-milliseconds">0</span></p>
   <button class="button" id="start">Start</button><h>&nbsp;&nbsp;&nbsp;</h>
   <button class="button" id="stop">Stop</button><h>&nbsp;&nbsp;&nbsp;</h>
@@ -203,7 +203,7 @@
 
 <div class="centered">
 <p>
-    <h1 class="simpletext">Timer</h1>
+    <h1  class="titles">Timer</h1>
     <p class="simpletext">Enter the time in seconds:</p>
     <input type="number" value="10" id="time-input"  class="textbox" min="1" style="width: 100px; max-width:80%" />
     <h>&nbsp;&nbsp;&nbsp;</h>
