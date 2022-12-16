@@ -49,14 +49,11 @@
 
 <!-- Create a form with an input for the link and a button to generate the QR code -->
 <form>
-<p>
   <label class="simpletext">
-    <h>&nbsp;&nbsp;&nbsp;</h>
-    <input type="text" id="link-input" class="textbox"/>
+    <input type="text" id="link-input" class="textbox" style="width: 400px; max-width:80%" placeholder="Insert link"/>
   </label>
-  <h>&nbsp;&nbsp;&nbsp;</h>
+  <br><br>
   <button type="button" id="generate-button" class="button">Generate QR code</button>
-  </p>
 </form>
 </div>
 <!-- Create a div element where the QR code will be generated -->
@@ -120,8 +117,8 @@
 
   <h1>Stopwatch</h1>
   <p class="simpletext">Time: <span id="time-minute">0</span>:<span id="time-seconds">0</span>:<span id="time-milliseconds">0</span></p>
-  <button class="button" id="start">Start</button>
-  <button class="button" id="stop">Stop</button>
+  <button class="button" id="start">Start</button><h>&nbsp;&nbsp;&nbsp;</h>
+  <button class="button" id="stop">Stop</button><h>&nbsp;&nbsp;&nbsp;</h>
   <button class="button" id="reset">Reset</button>
 
   <script>
@@ -208,7 +205,7 @@
 <p>
     <h1 class="simpletext">Timer</h1>
     <p class="simpletext">Enter the time in seconds:</p>
-    <input type="number" value="10" id="time-input"  class="textbox" pattern="[1-9]*" min="1"/>
+    <input type="number" value="10" id="time-input"  class="textbox" min="1" style="width: 100px; max-width:80%" />
     <h>&nbsp;&nbsp;&nbsp;</h>
     <button onclick="startTimer()" class="button">Start Timer</button> </p>
     <p class="simpletext">Time remaining: <span id="time-remaining">0</span></p>
