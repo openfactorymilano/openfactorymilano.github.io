@@ -43,7 +43,7 @@
 
 <div class="centered">
 <h1 style="text-align: center; color:white">QR Code Generator</h1>
-  <p style="text-align: center; color:white">Insert a link and then click on the button to generate a QR code.</p>
+  <p  class="simpletext">Insert a link and then click on the button to generate a QR code.</p>
 <!-- Include the qrcode.js library -->
 <script src="https://unpkg.com/qrcodejs@1.0.0/qrcode.min.js"></script>
 
@@ -91,7 +91,7 @@
 <div class="centeredwhite">
 <h1 style="text-align: center; color:white">Weather in Milan</h1>
 <!-- Create a div element where the weather data will be displayed -->
-<div id="weather" class="centered" style="color:white"></div>
+<div id="weather" class="simpletext"></div>
 
 <!-- Get the weather data and display it in the div element when the page loads -->
 <script>
@@ -118,13 +118,14 @@
 <hr>
 
   <h1>Stopwatch</h1>
-  <p>Time: <span id="time-seconds">0</span>:<span id="time-milliseconds">0</span> seconds</p>
+  <p class="simpletext">Time: <span id="time-minute">0</span>:<span id="time-seconds">0</span>:<span id="time-milliseconds">0</span></p>
   <button class="button" id="start">Start</button>
   <button class="button" id="stop">Stop</button>
   <button class="button" id="reset">Reset</button>
 
   <script>
     // Initialize variables
+    let timeMinute = 0;
     let timeSecond = 0;
     let timeMillisecond = 0;
     let stopped = 1;
@@ -134,6 +135,7 @@
     const startBtn = document.getElementById("start");
     const stopBtn = document.getElementById("stop");
     const resetBtn = document.getElementById("reset");
+    const timeMinuteDisplay = document.getElementById("time-minute");
     const timeSecondDisplay = document.getElementById("time-seconds");
     const timeMillisecondDisplay = document.getElementById("time-milliseconds");
     
@@ -153,7 +155,12 @@
         timeSecond += 1;
         timeMillisecond = 0;
       }
+      if(timeSecond == 60){
+        timeMinute += 1;
+        timeSecond = 0;
+      }
       
+      timeMinuteDisplay.innerHTML = timeMinute;
       timeSecondDisplay.innerHTML = timeSecond;
       timeMillisecondDisplay.innerHTML = timeMillisecond;
       
@@ -167,6 +174,8 @@
       // Clear the interval to stop the stopwatch
       stopped = 1;
       going = 0;
+      
+      timeMinuteDisplay.innerHTML = timeMinute;
       timeSecondDisplay.innerHTML = timeSecond;
       timeMillisecondDisplay.innerHTML = timeMillisecond;
     }
@@ -175,9 +184,12 @@
     function reset() {
       // Clear the interval and reset the time to 0
       stopped = 1;
+      timeMinute = 0;
       timeSecond = 0;
       timeMillisecond = 0;
       going = 0;
+      
+      timeMinuteDisplay.innerHTML = timeMinute;
       timeSecondDisplay.innerHTML = timeSecond;
       timeMillisecondDisplay.innerHTML = timeMillisecond;
     }
@@ -194,9 +206,9 @@
 <div class="centered">
     <h1 class="simpletext">Timer</h1>
     <p class="simpletext">Enter the time in seconds:</p>
-    <input type="number" id="time-input"  class="textbox"/>
+    <input type="number" value="10" id="time-input"  class="textbox" pattern="[1-9]*" min="1"/>
     <button onclick="startTimer()" class="button">Start Timer</button>
-    <p class="simpletext">Time remaining: <span id="time-remaining"></span></p>
+    <p class="simpletext">Time remaining: <span id="time-remaining">0</span></p>
     <audio id="audio-context"></audio>
 
     <script>
@@ -216,13 +228,16 @@
   // Start the oscillator
   
         var timer = setInterval(function() {
-          time--;
           document.getElementById("time-remaining").innerHTML = time;
+          time--;
           
           if (time == 0) {
             clearInterval(timer);
-            oscillator.start();
-            setTimeout(function(){oscillator.stop();}, 600);
+            setTimeout(function(){oscillator.start();}, 1000);
+            
+            setTimeout(function(){oscillator.stop();}, 1600);
+            setTimeout(function(){document.getElementById("time-remaining").innerHTML = time;}, 1000);
+            
           }
         }, 1000);
       }
