@@ -49,13 +49,14 @@
 
 <!-- Create a form with an input for the link and a button to generate the QR code -->
 <form>
+<p>
   <label class="simpletext">
-    Link:
     <h>&nbsp;&nbsp;&nbsp;</h>
     <input type="text" id="link-input" class="textbox"/>
   </label>
   <h>&nbsp;&nbsp;&nbsp;</h>
   <button type="button" id="generate-button" class="button">Generate QR code</button>
+  </p>
 </form>
 </div>
 <!-- Create a div element where the QR code will be generated -->
@@ -204,10 +205,12 @@
 <hr>
 
 <div class="centered">
+<p>
     <h1 class="simpletext">Timer</h1>
     <p class="simpletext">Enter the time in seconds:</p>
     <input type="number" value="10" id="time-input"  class="textbox" pattern="[1-9]*" min="1"/>
-    <button onclick="startTimer()" class="button">Start Timer</button>
+    <h>&nbsp;&nbsp;&nbsp;</h>
+    <button onclick="startTimer()" class="button">Start Timer</button> </p>
     <p class="simpletext">Time remaining: <span id="time-remaining">0</span></p>
     <audio id="audio-context"></audio>
 
