@@ -57,7 +57,7 @@
 </form>
 </div>
 <!-- Create a div element where the QR code will be generated -->
-<div id="qrcode" class="centered"></div>
+<h>&nbsp;&nbsp;&nbsp;</h><div id="qrcode"></div>
 
 <!-- Generate the QR code and insert it into the div element when the button is clicked -->
 <script>
@@ -76,11 +76,12 @@
     // Generate the QR code
     var qrcode = new QRCode(qrcodeElement, {
       text: link,
-      width: 200,
-      height: 200,
+      width: 250,
+      height: 250,
+      
     });
     // Reset the input
-    linkInput.value = "";
+    document.getElementById("link-input").value = "";
   });
 </script>
 <br>
