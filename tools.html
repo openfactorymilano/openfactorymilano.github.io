@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body style="background-color:#111111">
-<h1 style="text-align: center; color:white; font-size: min(max(40px, 4vw), 30px);">Open Factory</h1>
+<h1>Open Factory</h1>
 <p style="text-align: center; color:white">Laboratorio di Lorenzo Ubaldi</p>
 <!-- Top navigation -->
 <div class="topnav">
@@ -57,7 +57,7 @@
 </form>
 </div>
 <!-- Create a div element where the QR code will be generated -->
-<div id="qrcode" class="centered"></div>
+<h>&nbsp;&nbsp;&nbsp;</h><div id="qrcode"></div>
 
 <!-- Generate the QR code and insert it into the div element when the button is clicked -->
 <script>
@@ -76,11 +76,12 @@
     // Generate the QR code
     var qrcode = new QRCode(qrcodeElement, {
       text: link,
-      width: 200,
-      height: 200,
+      width: 250,
+      height: 250,
+      
     });
     // Reset the input
-    linkInput.value = "";
+    document.getElementById("link-input").value = "";
   });
 </script>
 <br>
