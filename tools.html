@@ -202,44 +202,74 @@
 <hr>
 
 <div class="centered">
-<p>
-    <h1  class="titles">Timer</h1>
-    <p class="simpletext">Enter the time in seconds:</p>
-    <input type="number" value="10" id="time-input"  class="textbox" min="1" style="width: 100px; max-width:80%" />
+
+        <h1 class="titles">Timer</h1>
+    
+    <form>
+      <label for="minutes-input" class="simpletext">Time:&nbsp;</label>
+      <input type="number" id="minutes-input" value="0" min="0" max="60" style="width: 80px" class="textbox">
+      <h class="simpletext">&nbsp; : &nbsp;</h>
+      <input type="number" id="seconds-input" value="0" min="0" max="60" style="width: 80px" class="textbox">
+    </form>
+    <br>
+    <div id="timer" class="simpletext">
+      <h class="simpletext">Time remaining: &nbsp;</h>
+      <span id="minutes">00</span>:<span id="seconds">00</span>
+    </div>
+    <br>
+    <button onclick="startTimer()" class="button">Start</button>
     <h>&nbsp;&nbsp;&nbsp;</h>
-    <button onclick="startTimer()" class="button">Start Timer</button> </p>
-    <p class="simpletext">Time remaining: <span id="time-remaining">0</span></p>
-    <audio id="audio-context"></audio>
+    <button onclick="resetTimer()" class="button">Reset</button>
 
     <script>
-      function startTimer() {
-        // Get the time from the input field
-        var time = document.getElementById("time-input").value;
-        var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        // Update the time remaining every second
-         var oscillator = audioCtx.createOscillator();
-
-  // Set the frequency of the oscillator (i.e. the note to play)
-  oscillator.frequency.value = 600;
-
-  // Connect the oscillator to the audio context
-  oscillator.connect(audioCtx.destination);
-
-  // Start the oscillator
+      let minutes = 0;
+      let seconds = 0;
+      let timer;
+      
+      
   
-        var timer = setInterval(function() {
-          document.getElementById("time-remaining").innerHTML = time;
-          time--;
-          
-          if (time == 0) {
-            clearInterval(timer);
-            setTimeout(function(){oscillator.start();}, 1000);
-            
-            setTimeout(function(){oscillator.stop();}, 1600);
-            setTimeout(function(){document.getElementById("time-remaining").innerHTML = time;}, 1000);
-            
+      function startTimer() {
+        minutes = parseInt(document.getElementById("minutes-input").value);
+        seconds = parseInt(document.getElementById("seconds-input").value);
+        
+        document.getElementById("minutes").innerHTML = minutes < 10 ? "0" + minutes : minutes;
+        document.getElementById("seconds").innerHTML = seconds < 10 ? "0" + seconds : seconds;
+        
+        var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        var oscillator = audioCtx.createOscillator();
+        oscillator.frequency.value = 600;
+        oscillator.connect(audioCtx.destination);
+      
+        timer = setInterval(() => {
+          seconds--;
+          if (seconds < 0) {
+            minutes--;
+            seconds = 59;
           }
+          if (minutes < 0) {
+            clearInterval(timer);
+            
+            minutes = 0;
+            seconds = 0;
+          }
+          if(seconds == 0 && minutes == 0){
+            oscillator.start()
+            setTimeout(function(){oscillator.stop();}, 600);
+          }
+            
+          document.getElementById("minutes").innerHTML = minutes < 10 ? "0" + minutes : minutes;
+          document.getElementById("seconds").innerHTML = seconds < 10 ? "0" + seconds : seconds;
         }, 1000);
+      }
+
+      function resetTimer() {
+        clearInterval(timer);
+        minutes = 0;
+        seconds = 0;
+        document.getElementById("minutes").innerHTML = "00";
+        document.getElementById("seconds").innerHTML = "00";
+        document.getElementById("minutes-input").value = "0";
+        document.getElementById("seconds-input").value = "0";
       }
     </script>
 </div>
