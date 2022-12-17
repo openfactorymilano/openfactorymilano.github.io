@@ -3,12 +3,7 @@ body {
   font-family: Arial, Helvetica, Monospace;
 }
 
-img {
-        display: block;
-        margin: 0 auto;
-        text-align: center;
-        color: green;
-      }
+
 
 .centered {
   text-align: center;
