@@ -17,7 +17,7 @@ p {
 }
 
 .button {
-    font-size: 20px;
+    font-size: 26px;
     text-align: center;
     color:black;
     background-color:white;
@@ -26,7 +26,16 @@ p {
   
   .simpletext {
     color:silver;
-    font-size: 20px;
+    font-size: 26px;
+  }
+  
+  .paragraph {
+    color:silver;
+    font-size: 26px;
+    display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 90%;
   }
   
   .titles {
@@ -126,3 +135,85 @@ p {
 }
 
 
+
+
+
+
+
+
+
+    .container {
+      position: relative;
+      height: 600px;
+      overflow: hidden;
+      
+      align-items: center;
+      justify-content: center;
+
+      
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 90%;
+      
+      
+    }
+    
+    .caption {
+      height: 600px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 90%;
+      
+      
+    }
+
+    .image {
+      display: block;
+      height: 90%;
+      
+      max-width: 90%;
+      max-height: 90%;
+      
+      object-position: center;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      transition: transform 1s ease-in-out;
+      
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      
+      transform: translateY(-50%);
+      font-size: 48px;
+      color: #fff;
+      cursor: pointer;
+      transition: color 0.2s ease-in-out;
+    }
+
+    .arrow:hover {
+      color: green;
+    }
+
+    .arrow.left {
+      left: 0;
+    }
+
+    .arrow.right {
+      right: 0;
+    }
+    
+    .unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  

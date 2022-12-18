@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html>
+  <link type="text/css" rel="stylesheet" href="magicscroll.css"/>
+  <script type="text/javascript" src="magicscroll.js"></script>
 <head><title>Open Factory</title>
   <link rel="icon" href="/images/icon.png">
   <link rel="stylesheet" href="styles.css">
@@ -31,21 +33,99 @@
   
 </div>
 
-<h2 style="text-align: left; color:white; margin: 20px 20px;">Italiano</h2>
-<p class="simpletext">
+
+<p class="simpletext paragraph">
+<br>
+<h class="titles">Italiano</h>
+<br><br>
 Benvenuti nel nostro laboratorio di prototipazione, situato in una vecchia fabbrica. Qui siamo specializzati nella progettazione e costruzione di prototipi su misura utilizzando una vasta gamma di tecnologie avanzate, come l'elettronica, la stampa 3D, la lavorazione CNC e il taglio laser. Siamo appassionati di creazione e siamo sempre pronti ad affrontare nuove sfide e aiutare i nostri clienti a realizzare le loro idee.
 <br>
 Oltre alla nostra attività principale, ospitiamo anche eventi aperti al pubblico, come workshop e corsi, dove condividiamo le nostre conoscenze e abilità con chiunque sia interessato a imparare di più sulla prototipazione e sulla tecnologia. Siamo entusiasti di accogliervi nel nostro laboratorio e di farvi partecipare alla nostra community di creativi e innovatori.
 
 
 </p>
-
-<h2 style="text-align: left; color:white; margin: 20px 20px;">English</h2>
-<p class="simpletext">
+<br>
+<p class="simpletext paragraph">
+<br>
+<h class="titles">English</h>
+<br><br>
 "Welcome to our prototyping laboratory, located in an old factory. Here at our facility, we specialize in designing and building custom prototypes using a wide range of advanced technologies such as electronics, 3D printing, CNC machining, and laser cutting. We are passionate about creation and are always ready to take on new challenges and help our clients bring their ideas to life.
 <br>
 In addition to our core business, we also host public events such as workshops and courses where we share our knowledge and skills with anyone interested in learning more about prototyping and technology. We are excited to welcome you to our laboratory and have you join our community of creative and innovative thinkers.
 </p>
+<br>
+<hr>
+<h1 class="titles centered">Prossimi Eventi</h1>
+  <div class="container" class="unselectable">
+    <img src="image1.png" alt="Image 1" class="image">
+    <img src="image2.png" alt="Image 2" class="image">
+    <img src="image3.png" alt="Image 3" class="image">
+    <div class="arrow left" onclick="scrollSlides(-1)">&#10094;</div>
+    <div class="arrow right" onclick="scrollSlides(1)">&#10095;</div>
+    
+    
+  </div>
+  <br>
+  <p class="caption simpletext">
+    <h class="titles">Robot war</h>
+    <br><br>
+  Welcome to the annual Robot Combat event! This is a thrilling competition where anyone can join and bring their own robot to compete against other robots in a battle arena. Whether you are a seasoned robotics enthusiast or a beginner looking to test your skills, this event is for you.
+<br><br>
+The event will feature a variety of categories, ranging from lightweight robots to heavyweight bots. There are no restrictions on the type of robots that can participate, as long as they meet the safety regulations set by the event organizers. You can build your robot using any materials and technologies you prefer, whether it be metal, plastic, or even cardboard.
+<br><br>
+The competition will be fierce as participants from all over the country come together to see whose robot reigns supreme. The judges will be looking for creativity, strategy, and overall effectiveness in each match. The winner of each category will be crowned the champion and take home a cash prize.
+<br><br>
+But the fun doesn't stop there. In addition to the main competition, there will also be demonstrations, workshops, and other interactive activities for attendees to enjoy. So come on down and join in the fun at the annual Robot Combat event!
+</p>
+
+  <p class="caption simpletext">
+  <h  class="titles">Workshop elettronica</h>
+  <br><br>
+  Attending an electronics workshop can be a valuable experience for individuals looking to expand their knowledge and skills in the field. These workshops are typically led by experienced professionals who are able to provide hands-on training and guidance to participants. During the workshop, attendees will have the opportunity to learn about a variety of topics related to electronics, including circuit design, microcontrollers, and programming languages. 
+  <br><br>
+  The hands-on nature of the workshop allows participants to apply what they have learned in a practical setting, allowing them to better understand the concepts being taught. In addition to the technical skills learned during the workshop, attendees may also gain valuable problem-solving and critical thinking skills as they work through challenges and projects. Overall, attending an electronics workshop can be a great way to gain a deeper understanding of this field and to build the skills needed to succeed in a variety of electronics-related careers.
+  
+  </p>
+  
+  <p class="caption simpletext">
+  <h  class="titles">Workshop CNC</h><br><br>
+  Attending a CNC (computer numerical control) workshop can be a great way to learn about this advanced manufacturing technology. CNC machines are used to cut and shape materials with precision and accuracy, making them an essential tool in industries ranging from automotive to aerospace. During a CNC workshop, attendees will have the opportunity to learn about the different types of CNC machines and their capabilities, as well as the programming languages and software used to control them. 
+  <br><br>
+  Participants will also get hands-on experience with CNC equipment, learning how to set up and operate the machines and troubleshoot any issues that may arise. In addition to technical skills, attendees may also develop their problem-solving and critical thinking skills as they work through projects and challenges. Overall, attending a CNC workshop can be a valuable experience for individuals looking to enter or advance in a career in manufacturing or related fields. <br>
+  </p>
+  
+  <script>
+  var slideIndex = 0;
+  showSlides(slideIndex);
+
+  function scrollSlides(n) {
+    showSlides(slideIndex += n);
+  }
+
+  function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("image");
+    var captions = document.getElementsByClassName("caption");
+    if (n > slides.length - 1) {
+      slideIndex = 0;
+    }
+    if (n < 0) {
+      slideIndex = slides.length - 1;
+    }
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    for (i = 0; i < captions.length; i++) {
+      captions[i].style.display = "none";
+    }
+    slides[slideIndex].style.display = "block";
+    captions[slideIndex].style.display = "block";
+  }
+</script>
+
+</body>
+</html>
+
 
 </body>
 </html>

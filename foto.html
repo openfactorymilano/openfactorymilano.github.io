@@ -30,7 +30,47 @@
   </div>
   
 </div>
-<br><p style="text-align: center; color:white">WIP</p>
+<br>
+
+ <div class="container" class="unselectable">
+    <img src="image1.png" alt="Image 1" class="image">
+    <img src="image2.png" alt="Image 2" class="image">
+    <img src="image3.png" alt="Image 3" class="image">
+    <div class="arrow left" onclick="scrollSlides(-1)">&#10094;</div>
+    <div class="arrow right" onclick="scrollSlides(1)">&#10095;</div>
+    
+    
+  </div>
+  <br>
+  <script>
+  var slideIndex = 0;
+  showSlides(slideIndex);
+
+  function scrollSlides(n) {
+    showSlides(slideIndex += n);
+  }
+
+  function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("image");
+    var captions = document.getElementsByClassName("caption");
+    if (n > slides.length - 1) {
+      slideIndex = 0;
+    }
+    if (n < 0) {
+      slideIndex = slides.length - 1;
+    }
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    for (i = 0; i < captions.length; i++) {
+      captions[i].style.display = "none";
+    }
+    slides[slideIndex].style.display = "block";
+    captions[slideIndex].style.display = "block";
+  }
+</script>
+
 
 </body>
 </html>
