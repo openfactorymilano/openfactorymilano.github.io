@@ -28,49 +28,90 @@
     <a href="contatti.html">Contatti</a>
     <a href="tools.html">Tools</a>
   </div>
-  
 </div>
-<br>
 
- <div class="container" class="unselectable">
-    <img src="image1.png" alt="Image 1" class="image">
-    <img src="image2.png" alt="Image 2" class="image">
-    <img src="image3.png" alt="Image 3" class="image">
-    <div class="arrow left" onclick="scrollSlides(-1)">&#10094;</div>
-    <div class="arrow right" onclick="scrollSlides(1)">&#10095;</div>
-    
-    
+<style>
+* {box-sizing: border-box}
+.mySlides1, .mySlides2 {display: none}
+img {vertical-align: middle;}
+</style>
+</head>
+<body>
+
+<p class="titles paragraph">First room</p>
+<div class="slideshow-container">
+  <div class="mySlides1">
+    <img src="image1.png" class="image">
   </div>
-  <br>
-  <script>
-  var slideIndex = 0;
-  showSlides(slideIndex);
 
-  function scrollSlides(n) {
-    showSlides(slideIndex += n);
-  }
+  <div class="mySlides1">
+    <img src="image2.png" class="image">
+  </div>
 
-  function showSlides(n) {
-    var i;
-    var slides = document.getElementsByClassName("image");
-    var captions = document.getElementsByClassName("caption");
-    if (n > slides.length - 1) {
-      slideIndex = 0;
-    }
-    if (n < 0) {
-      slideIndex = slides.length - 1;
-    }
-    for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
-    }
-    for (i = 0; i < captions.length; i++) {
-      captions[i].style.display = "none";
-    }
-    slides[slideIndex].style.display = "block";
-    captions[slideIndex].style.display = "block";
+  <div class="mySlides1">
+    <img src="image3.png" class="image">
+  </div>
+
+  <a class="prev" onclick="plusSlides(-1, 0)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1, 0)">&#10095;</a>
+</div>
+<p class="simpletext paragraph">
+
+<br><br>
+The room in the laboratory with woodworking tools, CNC equipment, welding equipment, and a drill press serves a vital function in the overall operation of the laboratory. These tools are used to create a variety of projects and prototypes, ranging from small wooden objects to large metal structures. The CNC equipment allows for precise and accurate cuts, while the welding equipment allows for the construction of strong and durable metal structures. The drill press is also an essential tool, allowing for the creation of precise holes in various materials.
+<br><br>
+One of the key benefits of having a separate room for these tools is that it helps to keep the rest of the laboratory clean. Many of these tools produce a significant amount of dust, which can be harmful to the rest of the laboratory if not properly contained. By having a separate room, the dust can be contained and easily cleaned up, helping to maintain a clean and safe work environment. This not only benefits the laboratory staff, but also helps to protect the integrity of the research being conducted in the rest of the laboratory. Overall, the room with woodworking tools, CNC equipment, welding equipment, and a drill press plays a crucial role in the functionality of the laboratory, and helps to keep it clean and safe for all those who use it.
+<br><br>
+</p>
+
+<p class="titles paragraph">Second room</p>
+<div class="slideshow-container">
+  <div class="mySlides2">
+    <img src="image21.png" class="image">
+  </div>
+
+  <div class="mySlides2">
+    <img src="image22.png" class="image">
+  </div>
+
+  <div class="mySlides2">
+    <img src="image23.png" class="image">
+  </div>
+
+  <a class="prev" onclick="plusSlides(-1, 1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1, 1)">&#10095;</a>
+</div>
+
+<p class="simpletext paragraph">
+
+<br><br>
+The second room in the laboratory is equipped with 3D printers, a computer and electronics bench, and various testing and prototyping equipment such as oscilloscopes, signal generators, and power supplies. This room serves as a hub for electronics prototyping, 3D printing, and the assembly of final products. The 3D printers allow for the creation of complex 3D models and prototypes, while the electronics bench allows for the testing and prototyping of electronic circuits and components. The oscilloscopes and signal generators allow for the precise measurement and testing of electronic signals, and the power supplies provide a stable and reliable source of power for these tests.
+<br><br>
+Having two separate rooms in the laboratory allows for the maintenance of a clean and organized workspace in this room, which is essential for electronics and assembly work. Dust and debris can easily disrupt the functioning of delicate electronic components, so it is important to keep this room as clean as possible. This room is essential for the development of new products and prototypes, and the clean and organized workspace helps to ensure that the work is completed efficiently and effectively. Overall, the second room in the laboratory with 3D printers, electronics equipment, and assembly tools plays a crucial role in the research and development process, and helps to maintain a clean and organized workspace for all those who use it.
+<br><br>
+</p>
+
+<script>
+let slideIndex = [1,1];
+let slideId = ["mySlides1", "mySlides2"]
+showSlides(1, 0);
+showSlides(1, 1);
+
+function plusSlides(n, no) {
+  showSlides(slideIndex[no] += n, no);
+}
+
+function showSlides(n, no) {
+  let i;
+  let x = document.getElementsByClassName(slideId[no]);
+  if (n > x.length) {slideIndex[no] = 1}    
+  if (n < 1) {slideIndex[no] = x.length}
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";  
   }
+  x[slideIndex[no]-1].style.display = "block";  
+}
 </script>
-
 
 </body>
 </html>

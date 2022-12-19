@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html>
-  <link type="text/css" rel="stylesheet" href="magicscroll.css"/>
-  <script type="text/javascript" src="magicscroll.js"></script>
 <head><title>Open Factory</title>
   <link rel="icon" href="/images/icon.png">
   <link rel="stylesheet" href="styles.css">
@@ -62,9 +60,7 @@ In addition to our core business, we also host public events such as workshops a
     <img src="image3.png" alt="Image 3" class="image">
     <div class="arrow left" onclick="scrollSlides(-1)">&#10094;</div>
     <div class="arrow right" onclick="scrollSlides(1)">&#10095;</div>
-    
-    
-  </div>
+    </div>
   <br>
   <p class="caption simpletext">
     <h class="titles">Robot war</h>
@@ -94,35 +90,10 @@ But the fun doesn't stop there. In addition to the main competition, there will 
   Participants will also get hands-on experience with CNC equipment, learning how to set up and operate the machines and troubleshoot any issues that may arise. In addition to technical skills, attendees may also develop their problem-solving and critical thinking skills as they work through projects and challenges. Overall, attending a CNC workshop can be a valuable experience for individuals looking to enter or advance in a career in manufacturing or related fields. <br>
   </p>
   
-  <script>
-  var slideIndex = 0;
-  showSlides(slideIndex);
-
-  function scrollSlides(n) {
-    showSlides(slideIndex += n);
-  }
-
-  function showSlides(n) {
-    var i;
-    var slides = document.getElementsByClassName("image");
-    var captions = document.getElementsByClassName("caption");
-    if (n > slides.length - 1) {
-      slideIndex = 0;
-    }
-    if (n < 0) {
-      slideIndex = slides.length - 1;
-    }
-    for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
-    }
-    for (i = 0; i < captions.length; i++) {
-      captions[i].style.display = "none";
-    }
-    slides[slideIndex].style.display = "block";
-    captions[slideIndex].style.display = "block";
-  }
-</script>
-
+ 
+  </div>
+  <script src="imageScript.js"></script>
+</div>
 </body>
 </html>
 
